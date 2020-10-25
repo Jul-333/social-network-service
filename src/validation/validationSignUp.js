@@ -22,13 +22,12 @@ export const validationSignUp = (arrOfFields) => {
   }
 
   // It checks if there are letters in the fields userName/email
-  const arrNameEmail = [userName, email];
-  const message = MESSAGE.EMAIL_NAME_WITHOUT_LETTERS;
-  const haveLetters = checkLetters(arrNameEmail, message);
+  const message = MESSAGE.NAME_WITHOUT_LETTERS;
+  const haveLetters = checkLetters([userName], message);
   if (!haveLetters) {
     return false;
   }
-
+ 
   // It checks if email is incorrect
   const isValidEmail = checkEmail(email);
   if (!isValidEmail) {
